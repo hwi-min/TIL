@@ -1,4 +1,4 @@
-# CLI: Command Line Interface
+# CLI : Command Line Interface
 ## 문법 및 활용
 ### 1. CLI에서 `'.'`의 역할
 - `.`: 현재 디렉토리
