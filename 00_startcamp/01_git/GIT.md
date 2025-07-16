@@ -50,11 +50,16 @@ git status
 1. GITLAB
 - Private이 특징: 초대된 사람만 볼 수 있음, 자신이 만든 것은 자신만 볼 수 있음
 2. GITHUB
-- Public이 특징: 포트폴리오, 실력 증빙용 
+- Public이 특징: 포트폴리오, 실력 증빙용  
 
-## Remote Repository
+### Remote Repository 설정
 ``` bash
 git remote add origin https://github.com/hwi-min/TIL.git
 ```
 - 해당 링크의 repository를 origin으로 부르겠다
 - origin 제외 다른 이름으로 저장도 가능
+
+### Push
+``` bash
+git push -u origin master
+```
