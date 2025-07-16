@@ -1,4 +1,3 @@
-
 # GIT
 - 변화를 기록하고 추적하는 것
 - 분산 버전 관리 시스템
@@ -22,7 +21,7 @@ Working Directory에서 변경된 파일들 중에 다음 버전에 포함시킬
 git status
 ```
 - 현재 staging area에 있는 파일을 확인할 수 있음
-- Changes t0 be comitted -> 내가 추가한 파일을 확인
+- Changes to be comitted -> 내가 추가한 파일을 확인
 - Untracked files -> 변동사항이 생겼지만, 내가 추가하지 않았다는 파일, git이 신경쓰지 않는 파일
 
 - Repository로 이동
@@ -46,3 +45,16 @@ git status
     git config --global user.email "whimin0319@gmail.com"
     git config --global user.name "김휘민"
     ```
+
+## Remote Repository
+1. GITLAB
+- Private이 특징: 초대된 사람만 볼 수 있음, 자신이 만든 것은 자신만 볼 수 있음
+2. GITHUB
+- Public이 특징: 포트폴리오, 실력 증빙용 
+
+## Remote Repository
+``` bash
+git remote add origin https://github.com/hwi-min/TIL.git
+```
+- 해당 링크의 repository를 origin으로 부르겠다
+- origin 제외 다른 이름으로 저장도 가능
