@@ -17,7 +17,7 @@ def generate_quiz_questions(title, summary, n=2):
     client = openai.OpenAI(api_key=api_key)
 
     prompt = (
-        f"다음은 IT/AI 뉴스 기사입니다. 기사 내용을 바탕으로 독자가 기사 이해도를 점검할 수 있는 퀴즈 2개(질문과 모범답안)를 한국어로 만들어주세요.\n"
+        f"다음은 IT/AI 뉴스 기사입니다. 기사 내용을 바탕으로, 사용자가 해당 기사 내용을 제대로 파악했는지 확인할 수 있는 퀴즈 2개(질문과 모범답안)를 한국어로 만들어주세요. 문제는 반드시 기사 핵심 내용 이해를 평가할 수 있어야 합니다.\n"
         f"\n[기사 제목]\n{title}\n\n[기사 요약]\n{summary}\n"
         "\n아래와 같은 JSON 리스트 형태로 반환하세요. 예시: [ {\"question\": \"질문1\", \"answer\": \"모범답안1\"}, ... ]\n"
     )
