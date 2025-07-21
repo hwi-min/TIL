@@ -147,3 +147,11 @@ def func(pos1, pos2, defaul_arg='default', *args, **kwargs):
     my_dict = {'x':1, 'y':2, 'z':3}
     my_function(**my_dict) # 1, 2, 3
     ```
+
+  # Question
+  ## lambda (익명 함수)
+  ```python
+  obj = list(map(lambda x: x**2, [1, 2, 3]))
+  print(obj) # [1, 4, 9] 
+  ```
+  
