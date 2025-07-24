@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 1500px;
+    }
+
+    .container {
+      position: relative;
+      height: 300px;
+      width: 300px;
+      border: 1px solid black;
+    }
+
+    .box {
+      height: 100px;
+      width: 100px;
+      border: 1px solid black;
+    }
+
+    .static {
+      /* position의 기본값이 static */
+      position: static;
+      background-color: lightcoral;
+    }
+
+      /* absolute -> 본인 공간 버리고 이동
+      relative -> 본인 공간 이전자리에 유지하고 이동
+      그래서 relative는 자식으로 사용해서 내 부모 요소가 기준으로 되게 함*/
+    .absolute {
+      position: absolute;
+      background-color: lightgreen;
+      /* 기준: 내 화면의 최상단왼쪽 */
+      top: 100px;
+      left: 100px;
+    }
+
+    .relative {
+      position: relative;
+      background-color: lightblue;
+      /* 기준: 원래 위치 좌상단 꼭지점 기준 */
+      top: 100px;
+      left: 100px;
+    }
+
+    /* 고정, 스크롤을 내려고 같은 자리에 고정되어있음 (웹툰 볼 때 top 같은 버튼) */
+    .fixed {
+      position: fixed;
+      background-color: gray;
+      top: 0;
+      right: 0;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="box static">Static</div>
+    <div class="box absolute">Absolute</div>
+    <div class="box relative">Relative</div>
+    <div class="box fixed">Fixed</div>
+  </div>
+</body>
+
+</html>
