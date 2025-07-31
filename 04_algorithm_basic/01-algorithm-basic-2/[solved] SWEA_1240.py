@@ -1,6 +1,6 @@
 import sys
 sys.stdin = open('./SWEA_input_datas/input_1240.txt')
-
+ㅌ
 num_dict = {
     '0001101': 0,
     '0011001': 1,
@@ -40,8 +40,8 @@ for t in range(1, T+1):
 
     odd_sum = even_sum = result = 0
 
-    for i in range(8):
-        if i % 2 == 0: # 0 2 4 6
+    for i in range(8): # index는 0부터 시작하므로
+        if i % 2 == 0:
             odd_sum += reversed_list[i]
         else:
             even_sum += reversed_list[i]
