@@ -28,7 +28,6 @@ for t in range(1, T + 1):
     grid = [list(map(int, input().split())) for _ in range(N)]
     cnt = 0
 
-
     for j in range(N):  # column 기준으로 순회
         stacked = []
         for i in range(N):  # row 순차적으로 순회
