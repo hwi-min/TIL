@@ -1,5 +1,5 @@
 """
-URL configuration for config project.
+URL configuration for practice project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.2/topics/http/urls/
@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
-    # 요청이 articles/로 시작하면 뒤로 이어지는 URL path는 articles/urls.py에서 처리하도록 설정
-    path("articles/", include("articles.urls")),   
+    path('admin/', admin.site.urls),
+    # articles/로 요청이 왔을때
+    path('articles/', include('articles.urls')),
 ]
