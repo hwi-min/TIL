@@ -1,6 +1,3 @@
-import sys
-sys.stdin = open("input.txt")
-
 def dfs(idx, total):
     global min_height
     # 내 최종 결과가 min_height가 작아지길 바라는건데
@@ -34,7 +31,7 @@ for tc in range(1, T + 1):
     arr = list(map(int, input().split()))
 
     # 직원당 키는 최대 10000이므로, 최대 높이는 10000 * N
-    min_height = 10000 * N 
+    min_height = 10000 * N
 
     dfs(0, 0)
     # 목표 높이 B를 빼서 실제로 초과된 부분만 출력

@@ -9,7 +9,7 @@ for tc in range(1, T + 1):
     N, B = map(int, input().split())
     # 각 사람의 키를 입력 받아 리스트로 저장
     arr = list(map(int, input().split()))
-
+    print(arr)
     # 직원당 키는 최대 10000이므로, 최대 높이는 10000 * N
     min_height = 10000 * N
 
