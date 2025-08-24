@@ -8,9 +8,9 @@ def prim(vertices, edges):
 
     # 시작 정점에서 갈 수 있는 모든 정점들에 대한 간선정보
     # heapq 에 삽입
-    # 가중치, 시작정점, 종료정점
+    # 가중치, 시작정점, 종료정점으로 변경
     min_heap = [(w, start_vertex, e) for e, w in adj_list[start_vertex]]
-    heapq.heapify(min_heap)
+    heapq.heapify(min_heap) # 최소힙 구성 (가중치 기준)
     visited.add(start_vertex)
 
     while min_heap: # 모든 후보군 다 순회 완료 할 때까지!
@@ -27,7 +27,7 @@ def prim(vertices, edges):
             # 즉, 다음에 방문 할 예정이었던 정점이 이미 방문한적있다면
             # 후보군에 넣을 필요도 없다.
             if next in visited: continue
-            heapq.heappush(min_heap, (weight, end, next))
+            heapq.heappush(min_heap, (weight, end, next)) # 지금의 end가 다음 후보군에서는 start가 될 것이기 때문에
     return mst
 
 
