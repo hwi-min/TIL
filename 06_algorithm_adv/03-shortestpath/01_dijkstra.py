@@ -1,6 +1,8 @@
 import heapq, math
 
-
+# 다익스트라는 가중치가 음수가 없다는 걸 가정하고 진행 -> 너비우선으로 가봄 ! 우선순위 큐로 그리디하게
+# 벨만포드가 가중치 음수까지 확장
+# 플로이드-워셜: 노드와 간선들이 있다. 모든 노드가 각 노드에 가는 최단 경로를 찾는 것
 def dijkstra(graph, start):
     distances = {v: math.inf for v in graph}
     distances[start] = 0 # 시작 정점까지 도달하는 거리 0 초기화
@@ -27,6 +29,7 @@ def dijkstra(graph, start):
                 heapq.heappush(heap, [next_distance, next])
     return distances
 
+# 딕셔너리로 그래프 그리기
 graph = {
     'a': {'b': 3, 'c': 5},
     'b': {'c': 2},
@@ -39,4 +42,3 @@ graph = {
 start_v = 'a'
 res = dijkstra(graph, start_v)
 print(res)  # {'a': 0, 'b': 3, 'c': 5, 'd': 9, 'e': 11, 'f': 12}
-
