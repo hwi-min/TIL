@@ -5,28 +5,31 @@ from itertools import combinations
 import heapq
 
 def prim(start):
+    global min_sum
+
     visited = set()
     visited.add(start) # 방문체크
     min_heap = [(w, start, e) for e, w in adj_list[start]]
     heapq.heapify(min_heap) # 최소힙 만들기
 
     while min_heap:
-        end, weight = heapq.heappop()
-        if end in visited: continue
+        weight, start, end = heapq.heappop(min_heap)
+        if end in visited: continue # 이미 방문했으면 갈 필요 없음
 
         visited.add(end)
-        min_sum +=  weight
+        min_sum += weight
 
-        for
-
-
+        for next, weight in adj_list[end]:
+            # 이미 방문한 곳이면 넣을 필요도 없음
+            if next in visited: continue
+            heapq.heappush(min_heap, (weight, end, next))
 
 
 T = int(input())
 for t in range(1, T+1):
     N = int(input())
-    Xs = map(int, input().split())
-    Ys = map(int, input().split())
+    Xs = list(map(int, input().split()))
+    Ys = list(map(int, input().split()))
     E = float(input())
 
     vers = [i for i in range(N)]
@@ -46,5 +49,5 @@ for t in range(1, T+1):
         adj_list[v2].append((v1, dist))
 
     prim(0)
-
+    print(f"#{t} {round(E * min_sum)}")
 
