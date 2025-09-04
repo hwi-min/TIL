@@ -29,19 +29,17 @@ for letter in str1:
 for letter in str2:
     if letter in str_dict.keys():
         if str_dict[letter] > 0:
-            # str_dict.get(letter)99 -= 1
             str_dict[letter] -= 1
         else: # 0 이하이면 어쨌든 삭제해야하니까
             cnt += 1
 
-
     else: # 없으면
         cnt += 1
 
+# 이거 시간복잡도가 늘어요 -> sum으로 갑시다요
+# for key, value in str_dict.items():
+#     if value != 0:
+#         cnt += value
 
-for key, value in str_dict.items():
-    if value != 0:
-        cnt += value
 
-
-print(cnt)
+print(cnt + sum(list(str_dict.values())))
