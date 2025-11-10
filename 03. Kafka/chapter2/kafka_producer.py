@@ -15,3 +15,36 @@ for i in range(5):
 # 전송되지 않은 메시지를 모두 전송 후 리소스 정리
 producer.flush()                                 # 버퍼에 남은 메시지를 즉시 전송
 producer.close()                                 # Producer 종료
+
+
+"""
+tc 50개 -> 6초
+"""
+import sys
+# sys.stdin = open('test_code.txt')
+
+T = int(input())
+for t in range(1, T+1):
+    N, K = map(int, input().split())
+    nums = list(map(int, input().split()))
+    max_sum = float('-inf')
+
+    # 모든 K-sum 배열 만들기 >> O(N)
+    k_sums = []
+
+    current_sum = sum(nums[:K]) # 초기 값 세팅
+    k_sums.append(current_sum)
+
+    # (N-K)번 반복
+    for i in range(1, N-K+1):
+        current_sum = current_sum - nums[i-1] + nums[i+K-1]
+        k_sums.append(current_sum)
+
+    # 겹치지 않는 두 K-sum의 최대 합 찾기 >> O(N^2)
+    for j in range(len(k_sums)- K): 
+        for l in range(j+K, len(k_sums)): # 요소가 하나라도 안겹치려면 -> 인덱스가 k개 차이나야함
+            paired_sum = k_sums[j] + k_sums[l]
+            if max_sum < paired_sum: 
+                max_sum = paired_sum
+
+    print(f"#{t} {max_sum}")

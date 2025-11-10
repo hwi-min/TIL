@@ -64,8 +64,10 @@
 ## 📌 Kafka Producer의 버퍼
 ![RA&SenderThread](image-6.png)
 
-- RA(Record Accumulator): 전송될 레코드를 모아두는 메모리 공간, 전송 효율을 높이는 버퍼의 역할
-- 배치(Batch): 한번에 전송되는 레코드의 단위
+- **RA(Record Accumulator)**: 전송될 레코드를 모아두는 메모리 공간, 전송 효율을 높이는 버퍼의 역할
+- **배치(Batch)**: 한번에 전송되는 레코드의 단위
 - 전송스레드가 주기적으로 RA 버퍼 확인, 일정 조건이 만족되면 Drain()로 브로커로 흘려보냄
-- linger.ms:시간 전송 조건을 통해 시간이 지나면 전송하는 형태를 만들 수 있음 (최대 이 시간만큼 기다렸다가 batch가 안차도 전송!)
-- buffer.memory: 이 procuder가 쓸 수 있는 총 buffer memory 한도 (배치가 차지 않아도 강제 전송)
+- **linger.ms**:시간 전송 조건을 통해 시간이 지나면 전송하는 형태를 만들 수 있음 (최대 이 시간만큼 기다렸다가 batch가 안차도 전송!)
+- **buffer.memory**: 이 procuder가 쓸 수 있는 총 buffer memory 한도 (배치가 차지 않아도 강제 전송, 메모리가 부족해도 강제 전송)
+- **PiggyBack**: 조건을 만족하지 못한 배치가 만족한 배치와 같은 브로커를 향할때 함께 보내는 최적화 기법
+
