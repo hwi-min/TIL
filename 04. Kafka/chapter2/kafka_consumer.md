@@ -15,7 +15,7 @@
 
 ![멀티 컨슈밍](image-8.png)
 
-- 컨슈머 그룹(Consumer Group): 특정 토픽에 대해 접근 권한을 가진 턴슈머의 집단
+- 컨슈머 그룹(Consumer Group): 특정 토픽에 대해 접근 권한과 같은 목적을 가진 컨슈머의 집단
   - 컨슈머 그룹들이 독립적으로 구성 -> 독립적으로 데이터를 가져올 수 있음 -> 여러 컨슈머가 데이터를 병렬로 가져갈 수 있다 -> 목적에 따라 데이터를 처리할 수 있다
 
 ![컨슈머 그룹](image-9.png)
@@ -41,22 +41,23 @@
 ![2](image-13.png)
 
 ## 📌 Kafka Consumer의 Rebalance란?
-Consumer Rebalance 종류
+**Consumer Rebalance 종류**
 1. 새로운 Consumer 추가 -> 기존 파티션을 일부 재할당
 2. Consumer 제거 -> 남은 Consumer가 기존 Consumer의 파티션을 담당
 3. 파티션 개수 변경 -> 전체 Consumer에 대한 Rebalance 발생
 
-Consumer Rebalance의 과정
+**Consumer Rebalance의 과정**
 1. 그룹 코디네이터가 모든 컨슈머들의 소유권을 박탈하고 일시정지 시킴
 
 ![rebalance-1](image-14.png)
 
 2. JoinGroup 요청을 기다리고 가장 빠르게 답이 온 컨슈머를 리더로 선정
+  - 리더가 어떤 파티션을 누구에게 줄 것인지 파티션 재 분배 전략을 수립
 3. 리더는 재조정한 결과를 코디네이터에게 알리고 컨슈머들에게 전달
 
 ![rebalance-2](image-15.png)
 
-Consumer Partitioning
+C**onsumer Partitioning**
 1. RangeAssignor: 토픽별로 순서대로 나누어줌(과거 기본값)
 2. RoundRobinAssignor: 모든 파티션을 보고 하나씩 고르게 나누어짐
 3. StickyAssignor: 이전 할당 정보를 활용하여 최대한 비슷하게 (현재 기본값)
@@ -74,3 +75,9 @@ Consumer Partitioning
 
 ![Transaction](image-18.png)
 
+## 📌 Python 환경에서 사용해 보기
+![alt text](image-22.png)
+- flush: 버퍼에 남아있는 메시지를 강제로 모두 보내는 것
+
+![alt text](image-23.png)
+- earliest: 가장 최근 부터 읽겠다 ! (<-> 가장 과거부터 읽겠다)
