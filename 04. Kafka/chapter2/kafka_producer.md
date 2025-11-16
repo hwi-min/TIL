@@ -68,6 +68,18 @@
 - **배치(Batch)**: 한번에 전송되는 레코드의 단위
 - 전송스레드가 주기적으로 RA 버퍼 확인, 일정 조건이 만족되면 Drain()로 브로커로 흘려보냄
 - **linger.ms**:시간 전송 조건을 통해 시간이 지나면 전송하는 형태를 만들 수 있음 (최대 이 시간만큼 기다렸다가 batch가 안차도 전송!)
-- **buffer.memory**: 이 procuder가 쓸 수 있는 총 buffer memory 한도 (배치가 차지 않아도 강제 전송, 메모리가 부족해도 강제 전송)
+- **buffer.memory**: 이 procuder가 쓸 수 있는 총 buffer memory 한도 (배치가 차지 않아도 강제 전송)
 - **PiggyBack**: 조건을 만족하지 못한 배치가 만족한 배치와 같은 브로커를 향할때 함께 보내는 최적화 기법
 
+## 📌 Kafka Producer의 전송 스레드
+비동기(Async) 전송: 메시지(레코드)가 전송될 때까지 기다리지 않고 작업을 넘어감
+
+![async](image-20.png)
+
+동기(Sync) 전송: 메시지(레코드)가 확실히 브로커에 전송될 때까지 메인 스레드가 대기 
+
+![async](image-19.png)
+
+kafka의 Acknowledge 옵션
+
+![options](image-21.png)
