@@ -65,7 +65,7 @@
 - 여러 파일 포맷(csv, parquet 등) 지원
 - 수많은 시드파티 패키지와 통합 가능
 
-![확장성](image-4.png)
+  ![확장성](image-4.png)
 - 단순히 데이터를 분산처리하는 엔진이 아니라 다양한 컴포넌트로 구성이 되어있는 데이터 분석 플랫폼
 - SparkCore: 전체 연산을 실행하고 자원을 관리하는 역할 (핵심 실행 플랫폼)
 - SparkSQL: 구조적 데이터 처리 및 SQL 기반 쿼리 실행
@@ -127,7 +127,7 @@
 
 4) 스파크 세션(Spark Session)
 
-![session](image-6.png)
+    ![session](image-6.png)
 
 - Spark 기능(DataFrame, SQL 등)을 사용하기 위한 진입점
   - Spark Core 기능들과 상호작용할 수 있는 진입점 제공
@@ -150,12 +150,12 @@
 - 스테이지 안에서는 데이터 이동 없이 순서대로 처리 but 데이터가 섞이거나 이동해야한다면 셔플이 발생 
   - 셔플이 발생하면 ? -> 스테이지가 다음 스테이지로 넘어감
 
-![stage](image-8.png)
+  ![stage](image-8.png)
 - 스테이지 분할의 기준 (Wide, Narrow)
   - Wide: 데이터가 하나로 묶여있을 때, 그대로 이어서 하나로 처리해도 될 때
   - Nattor: 데이터가 여러 노드에 흩어져있어서 재배치(셔플)가 필요한 경우 (새로운 스테이지로 이동)
 
-![stage2](image-9.png)
+    ![stage2](image-9.png)
 - 데이터 셔플이 이루어지는 시기에 Stage0 -> Stage 2가 됐음! 
 - 스테이지는 결국 셔플 단위로 나뉘게 됨
 
@@ -177,7 +177,7 @@
   - map(), filter(), flatMap(), select(), groupby(), orderby() 등
 - Lineage: 장애가 나면 재계산(Flink의 Checkpointing과 유사한 기능, DAG 정보를 기반으로 이 시점부터 처리하겠다라는 것을 계산해서 복구를 수행)
 
-![transformation](image-10.png)
+  ![transformation](image-10.png)
 
 **Narrow transformation**
 - input: 1개의 파티션
@@ -186,14 +186,14 @@
 - filter(), map(), coalesce()
 - immutable -> 새로운 RDD를 만든다
 
-![narrow](image-11.png)
+  ![narrow](image-11.png)
 
 **Wide transformation**
 - 연산 시 파티션끼리 데이터 교환 발생 (네트워크, 재분배, 디스크, 속도 줄고 리소스 증가의 문제가 생길 수 있음)
 - groupby(), orderby(), sortByKey(), reduceByKey()
 - 단, join의 경우 두 부모 RDD/Dataframe이 어떻게 파티셔닝 되어 있냐에 따라 narrow일 수도 wide일 수도 있음
 
-![wide](image-12.png)
+  ![wide](image-12.png)
 
 *stage 수 = shuffle 수 + 1 (시작할때 stage 0부터 시작하니까!)
 
@@ -203,7 +203,7 @@
 - collect() -> output: array
 - save() -> output: void
 
-![action](image-13.png)
+  ![action](image-13.png)
 
 **Lazy Evaluation**
 - 모든 tranformation은 즉시 계산되지 않음
